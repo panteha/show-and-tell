@@ -33,7 +33,8 @@ NUM_CLASSES = 90
 
 class ObjectDetector(object):
     def __init__(self):
-        pass
+        self.download_model()
+        self.load_model()
 
     def download_model(self):
         if os.path.exists(MODEL_FILE):
@@ -99,11 +100,10 @@ class ObjectDetector(object):
                 plt.show()
 
 def main():
+    # from object_detect import ObjectDetector
     # test_image_path = '/Users/Pani/Downloads/airplane.jpg'
     test_image_path = '/Users/Pani/Downloads/fruits.jpeg'
     object_detector = ObjectDetector()
-    object_detector.download_model()
-    object_detector.load_model()
     # load a test image
     image = Image.open(test_image_path)
     image_np = object_detector.load_image_into_numpy_array(image)
