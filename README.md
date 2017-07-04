@@ -2,13 +2,10 @@
 
 ## What it does
 
-Create an app that tells the user what is in front of the camera
-
-This app aims to help identify objects from the camera of a phone and output the
-audio with the name of the object
+Create an app to aid visually impaired users to receive an audio description of what is in front of the camera.
 
 ## How we plan on making it work
 
-### Technologies 
+### Technologies
 
 TensorFlow  
