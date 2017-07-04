@@ -9,6 +9,17 @@ audio with the name of the object
 
 ## How we plan on making it work
 
-### Technologies 
+**User Stories**
+```As a user
+So I can interact with my environment
+I would like to upload a photo.
+
+As a user
+So I can learn about my environment
+I would like to hear what is present in my surroundings
+```
+
+
+### Technologies
 
 TensorFlow  
