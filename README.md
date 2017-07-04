@@ -19,7 +19,6 @@ So I can learn about my environment
 I would like to hear what is present in my surroundings
 ```
 
-
 ### Technologies
 
 TensorFlow  
