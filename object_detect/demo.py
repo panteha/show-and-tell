@@ -13,15 +13,11 @@ from PIL import Image
 
 # This is needed to display the images.
 # %matplotlib inline
-# import sys
-# This is needed since the notebook is stored in the object_detection folder.
-sys.path.append("..")
+sys.path.append('/Users/Pani/Documents/MakersAcademy/show-and-tell/object_detect/models')
 
-sys.path.append('/Users/Pani/Documents/MakersAcademy/show-and-tell/models/object_detection')
+from object_detection.utils import label_map_util
 
-from utils import label_map_util
-
-from utils import visualization_utils as vis_util
+from object_detection.utils import visualization_utils as vis_util
 
 MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
 MODEL_FILE = MODEL_NAME + '.tar.gz'
