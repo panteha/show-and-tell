@@ -28,17 +28,25 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file', filename=filename))
+            return redirect(url_for('analyse_file', filename=filename))
     return render_template('upload.html')
 
 @app.route('/images/uploads/<filename>')
 def uploaded_file(filename):
-    # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-    image_location = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/analyse/<filename>')
+def analyse_file(filename):
+    image_location = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     image = Image.open(image_location)
     image_np = objectdetect.load_image_into_numpy_array(image)
-    return ','.join(objectdetect.detect(image_np))
+    objects, image_analysed_np = objectdetect.detect(image_np)
+    image_analysed = Image.fromarray(image_analysed_np)
+    image_analysed.save(image_location, image.format)
+    objects = ','.join(objects)
+    return render_template('analyse.html',
+                image='/images/uploads/' + filename,
+                objects=objects)
 
 @app.route('/hello')
 def hello(name=None):
