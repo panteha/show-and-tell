@@ -87,7 +87,7 @@ class ObjectDetector(object):
                 (boxes, scores, classes, num_detections) = sess.run(
                   [boxes, scores, classes, num_detections],
                   feed_dict={image_tensor: image_np_expanded})
-                # Visualization of the results of a detection.
+                # # Visualization of the results of a detection.
                 vis_util.visualize_boxes_and_labels_on_image_array(
                   image_np,
                   np.squeeze(boxes),
@@ -99,6 +99,26 @@ class ObjectDetector(object):
                 plt.figure(figsize=IMAGE_SIZE)
                 plt.imshow(image_np)
                 plt.show()
+
+
+class FakeObjectDetector(object):
+
+    def __init__(self):
+        pass
+
+    def download_model(self):
+        pass
+
+    def load_model(self):
+        pass
+
+    def load_image_into_numpy_array(self, image):
+        pass
+
+    def detect(self, image_np):
+        return ['apple']
+
+
 
 def main():
     # from object_detect import ObjectDetector
