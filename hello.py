@@ -9,6 +9,7 @@ UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+objectdetect = ObjectDetector()
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -27,15 +28,14 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            global image_location
-            image_location = UPLOAD_FOLDER + '/' + file.filename
             return redirect(url_for('uploaded_file', filename=filename))
     return render_template('upload.html')
 
 @app.route('/images/uploads/<filename>')
 def uploaded_file(filename):
     # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-    objectdetect = ObjectDetector()
+    image_location = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
     image = Image.open(image_location)
     image_np = objectdetect.load_image_into_numpy_array(image)
     return ','.join(objectdetect.detect(image_np))
