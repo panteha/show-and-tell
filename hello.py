@@ -2,6 +2,8 @@ import os
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from flask import send_from_directory
+from object_detect import FakeObjectDetector
+from PIL import Image
 
 UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -30,13 +32,15 @@ def upload_file():
 
 @app.route('/images/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    fod = FakeObjectDetector()
+    image = Image.open('/Users/Pani/Documents/MakersAcademy/show-and-tell/images/uploads/airplane.jpg')
+    image_np = fod.load_image_into_numpy_array(image)
+    return ','.join(fod.detect(image_np))
 
 @app.route('/hello')
 def hello(name=None):
     return render_template('hello.html', name=name)
-
-
 
 
 if __name__ == '__main__':
