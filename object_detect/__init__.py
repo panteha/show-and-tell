@@ -88,18 +88,21 @@ class ObjectDetector(object):
                   [boxes, scores, classes, num_detections],
                   feed_dict={image_tensor: image_np_expanded})
                 # # Visualization of the results of a detection.
-                vis_util.visualize_boxes_and_labels_on_image_array(
-                  image_np,
-                  np.squeeze(boxes),
-                  np.squeeze(classes).astype(np.int32),
-                  np.squeeze(scores),
-                  self.category_index,
-                  use_normalized_coordinates=True,
-                  line_thickness=8)
-                plt.figure(figsize=IMAGE_SIZE)
-                plt.imshow(image_np)
-                plt.show()
-
+                # vis_util.visualize_boxes_and_labels_on_image_array(
+                #   image_np,
+                #   np.squeeze(boxes),
+                #   np.squeeze(classes).astype(np.int32),
+                #   np.squeeze(scores),
+                #   self.category_index,
+                #   use_normalized_coordinates=True,
+                #   line_thickness=8)
+                # plt.figure(figsize=IMAGE_SIZE)
+                # plt.imshow(image_np)
+                # plt.show()
+                object_array = []
+                for element in classes[scores > 0.7]:
+                    object_array.append(str(self.category_index[element]['name']))
+                return object_array
 
 class FakeObjectDetector(object):
 
@@ -117,8 +120,6 @@ class FakeObjectDetector(object):
 
     def detect(self, image_np):
         return ['apple']
-
-
 
 def main():
     # from object_detect import ObjectDetector
