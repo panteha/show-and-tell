@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 from object_detect import ObjectDetector
 from PIL import Image
-from os import system
+import os
 
 UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -45,10 +45,10 @@ def analyse_file(filename):
     image_analysed = Image.fromarray(image_analysed_np)
     image_analysed.save(image_location, image.format)
     objects = ','.join(objects)
-
+    os.system('say You have uploaded a lovely photo of %s ' %(objects))
     return render_template('analyse.html',
                 image='/images/uploads/' + filename,
-                objects=objects), system('say You have uploaded a lovely photo of %s ' %(objects))
+                objects=objects)
 
 @app.route('/hello')
 def hello(name=None):
