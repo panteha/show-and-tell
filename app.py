@@ -48,7 +48,7 @@ def analyse_file(filename):
 
     return render_template('analyse.html',
                 image='/images/uploads/' + filename,
-                objects=objects), system('say You have uploaded a lovely photo of an %s ' %(objects))
+                objects=objects), system('say You have uploaded a lovely photo of %s ' %(objects))
 
 @app.route('/hello')
 def hello(name=None):
