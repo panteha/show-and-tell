@@ -13,7 +13,7 @@ from PIL import Image
 
 # This is needed to display the images.
 # %matplotlib inline
-ROOT = '/Users/Pani/Documents/MakersAcademy/show-and-tell/object_detect/'
+ROOT = os.getcwd() + '/object_detect/'
 sys.path.append(ROOT + '/models')
 
 from object_detection.utils import label_map_util
@@ -124,7 +124,7 @@ class FakeObjectDetector(object):
 def main():
     # from object_detect import ObjectDetector
     # test_image_path = '/Users/Pani/Downloads/airplane.jpg'
-    test_image_path = '/Users/Pani/Downloads/fruits.jpeg'
+    # test_image_path = '/Users/Pani/Downloads/fruits.jpeg'
     object_detector = ObjectDetector()
     # load a test image
     image = Image.open(test_image_path)
