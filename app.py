@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 from object_detect import ObjectDetector
 from PIL import Image
+from os import system
 
 UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -47,7 +48,7 @@ def analyse_file(filename):
 
     return render_template('analyse.html',
                 image='/images/uploads/' + filename,
-                objects=objects)
+                objects=objects), system('say You have uploaded a lovely photo of an %s ' %(objects))
 
 @app.route('/hello')
 def hello(name=None):
