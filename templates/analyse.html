@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <head>
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <meta charset="utf-8">
     <title>Results</title>
-    <body>
-  <img src="{{ image }}" height="400"><br>
-  <h2>{{ objects }}</h2>
+  </head>
+  <body>
+    <img src="{{ image }}" height="400"><br>
+    <h2>{{ objects }}</h2>
   </body>
 </html>
