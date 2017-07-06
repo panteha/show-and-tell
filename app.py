@@ -4,7 +4,6 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 from object_detect import ObjectDetector
 from PIL import Image
-from gtts import gTTS
 
 UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -53,7 +52,6 @@ def analyse_file(filename):
 @app.route('/hello')
 def hello(name=None):
     return render_template('hello.html', name=name)
-
 
 if __name__ == '__main__':
     app.run()
