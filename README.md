@@ -57,4 +57,4 @@ $ flask run
 
 ### Technologies
 
-TensorFlow  
+TensorFlow 
