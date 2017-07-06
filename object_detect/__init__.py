@@ -5,7 +5,6 @@ import sys
 import tarfile
 import tensorflow as tf
 import zipfile
-
 from collections import defaultdict
 from io import StringIO
 from matplotlib import pyplot as plt
@@ -96,34 +95,13 @@ class ObjectDetector(object):
                   self.category_index,
                   use_normalized_coordinates=True,
                   line_thickness=8)
-                # plt.figure(figsize=IMAGE_SIZE)
-                # plt.imshow(image_np)
-                # plt.show()
                 object_array = []
                 for element in classes[scores > 0.7]:
                     object_array.append(str(self.category_index[element]['name']))
                 return object_array, image_np
 
-class FakeObjectDetector(object):
-
-    def __init__(self):
-        pass
-
-    def download_model(self):
-        pass
-
-    def load_model(self):
-        pass
-
-    def load_image_into_numpy_array(self, image):
-        pass
-
-    def detect(self, image_np):
-        return ['apple']
-
 def main():
     # from object_detect import ObjectDetector
-    # test_image_path = '/Users/Pani/Downloads/airplane.jpg'
     # test_image_path = '/Users/Pani/Downloads/fruits.jpeg'
     object_detector = ObjectDetector()
     # load a test image
