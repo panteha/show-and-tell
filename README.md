@@ -1,22 +1,20 @@
 # showNtell
 
-Dom McDonnell   [@dmcd84](https://github.com/dmcd84)
-Lubos Michalic  [@lubosmichalic](https://github.com/lubosmichalic)
-Panteha Ahmadi  [@panteha](http://github.com/panteha)
-Alex Satur      [@alexanders89](http://github.com/alexanders89)
+-Dom McDonnell   [@dmcd84](https://github.com/dmcd84)
+-Lubos Michalic  [@lubosmichalic](https://github.com/lubosmichalic)
+-Panteha Ahmadi  [@panteha](http://github.com/panteha)
+-Alex Satur      [@alexanders89](http://github.com/alexanders89)
 
 ## What it does
 
-Create an app to aid visually impaired users to receive an audio description of what is in front of the camera.
+A web app to detect objects within an image. It displays and to read back the contents to the user.
 
-## How we plan on making it work
+- Next step: Create an app to aid visually impaired users to receive an audio description of what is in front of the camera.
 
-## Prerequisites
+## Prerequisites/Requirements
 
 Python 2.7.9+
 
-
-## Requirements
 ### TensorFlow Object Detention API
 Tensorflow Object Detection API depends on the following libraries:
 
@@ -30,7 +28,7 @@ Tensorflow Object Detection API depends on the following libraries:
 
 For detailed steps to install Tensorflow, follow the
 [Tensorflow installation instructions](https://www.tensorflow.org/install/).
-A typically user can install Tensorflow using one of the following commands:
+A typical user can install Tensorflow using one of the following commands:
 ```bash
 $ pip install tensorflow
 ```
@@ -39,6 +37,8 @@ $ pip install tensorflow
 ```bash
 # Clone this repository
 $ git clone git@github.com:lubosmichalic/showNtell.git
+$ git submodule init
+$ git submodule update
 
 # Go into the repository
 $ cd showNtell
@@ -51,10 +51,3 @@ $ pip install virtualenv
 $ export FLASK_APP=app.py
 $ flask run
 ```
-
-
-
-
-### Technologies
-
-TensorFlow
