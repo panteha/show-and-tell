@@ -1,9 +1,9 @@
 # showNtell
 
--Dom McDonnell   [@dmcd84](https://github.com/dmcd84)
--Lubos Michalic  [@lubosmichalic](https://github.com/lubosmichalic)
--Panteha Ahmadi  [@panteha](http://github.com/panteha)
--Alex Satur      [@alexanders89](http://github.com/alexanders89)
+- Dom McDonnell   [@dmcd84](https://github.com/dmcd84)
+- Lubos Michalic  [@lubosmichalic](https://github.com/lubosmichalic)
+- Panteha Ahmadi  [@panteha](http://github.com/panteha)
+- Alex Satur      [@alexanders89](http://github.com/alexanders89)
 
 ## What it does
 
