@@ -7,7 +7,7 @@
 
 ## What it does
 
-A web app to detect objects within an image. It displays and to read back the contents to the user.
+A web app to detect objects within an image. It displays and reads back the contents to the user.
 
 - Next step: Create an app to aid visually impaired users to receive an audio description of what is in front of the camera.
 
