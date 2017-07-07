@@ -4,7 +4,6 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 from object_detect import ObjectDetector
 from PIL import Image
-import os
 
 UPLOAD_FOLDER = os.getcwd() + '/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
