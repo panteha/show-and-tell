@@ -1,7 +1,6 @@
 import unittest
 from flask import Flask
 from flask import request, redirect, url_for
-from flask_testing import TestCase
 from app import app
 from io import BytesIO
 
@@ -14,23 +13,23 @@ class MyTest(unittest.TestCase):
 
     def test_hello(self):
         tester = app.test_client(self)
-        response = tester.get('/hello', content_type='html/text')
+        response = tester.get('/hello')
         self.assertEqual(response.status_code, 200)
         assert 'Hello World!' in response.data
 
     def test_index(self):
         tester = app.test_client(self)
-        response = tester.get('/', content_type='html/text')
+        response = tester.get('/')
         self.assertEqual(response.status_code, 200)
         assert 'Upload new File' in response.data
 
     def test_image_upload(self):
         tester = app.test_client(self)
-        tester.get('/', content_type='html/text')
-        tester.post(data=dict(
-                        file=(BytesIO(), 'goat.png'),
-                    ), follow_redirects=True)
-        response = tester.get('/images/uploads/goat.png', content_type='html/text')
+        tester.get('/')
+	with open('images/orange.jpg') as fp:
+            response = tester.post(data=dict(file=(fp, 'orange.jpg')), follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        response = tester.get('/images/uploads/orange.jpg')
         self.assertEqual(response.status_code, 200)
 
 
